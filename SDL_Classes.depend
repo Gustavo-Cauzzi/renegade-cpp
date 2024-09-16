@@ -103,3 +103,74 @@
 1725933993 source:/home/gustavo/ucs/grafica/SDL/tde1/SDL_Classes/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
+1725934359 source:/home/gustavo/ucs/grafica/SDL/tde1/main.cpp
+	<SDL2/SDL.h>
+	<stdio.h>
+	<Color.h>
+	<Point.h>
+	<Polygon.h>
+	<Renegade.h>
+	<Line.h>
+	<vector>
+
+1725307355 /home/gustavo/ucs/grafica/SDL/tde1/include/Color.h
+	<SDL2/SDL.h>
+
+1725302342 /home/gustavo/ucs/grafica/SDL/tde1/include/Point.h
+
+1725933870 /home/gustavo/ucs/grafica/SDL/tde1/include/Polygon.h
+	<Point.h>
+	<vector>
+	<Color.h>
+	<Drawable.h>
+	<SDL2/SDL.h>
+	<Line.h>
+
+1725933671 /home/gustavo/ucs/grafica/SDL/tde1/include/Drawable.h
+	<SDL2/SDL.h>
+
+1725929900 /home/gustavo/ucs/grafica/SDL/tde1/include/Line.h
+	<Point.h>
+	<Color.h>
+	<Drawable.h>
+	<SDL2/SDL.h>
+
+1725933931 /home/gustavo/ucs/grafica/SDL/tde1/include/Renegade.h
+	<Point.h>
+	<vector>
+	<memory>
+	<Color.h>
+	<Drawable.h>
+	<SDL2/SDL.h>
+	<Line.h>
+
+1725308181 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Color.cpp
+	"Color.h"
+
+1725934126 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Line.cpp
+	"Line.h"
+
+1725305337 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Point.cpp
+	"Point.h"
+
+1725930116 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Drawable.cpp
+
+1725933862 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Polygon.cpp
+	"Polygon.h"
+
+1725934139 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Renegade.cpp
+	"Renegade.h"
+	<RenegadeBuilder.h>
+
+1725934306 /home/gustavo/ucs/grafica/SDL/tde1/include/RenegadeBuilder.h
+	<Point.h>
+	<vector>
+	<Color.h>
+	<Drawable.h>
+	<SDL2/SDL.h>
+	<Line.h>
+	<memory>
+
+1726526599 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
+	"RenegadeBuilder.h"
+

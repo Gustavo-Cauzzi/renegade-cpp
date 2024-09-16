@@ -56,6 +56,8 @@ RenegadeBuilder::RenegadeBuilder(SDL_Surface * window_surface, SDL_Renderer * pR
     this->append(207,225);
     this->append(188,218);
     this->append(188,208);
+
+    //this->currentShape.push_back(this->createLine(p1, p2));
 }
 
 shared_ptr<Drawable> RenegadeBuilder::createLine(Point start, Point end) {
