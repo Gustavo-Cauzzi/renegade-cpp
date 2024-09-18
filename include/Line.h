@@ -4,6 +4,7 @@
 #include <Color.h>
 #include <Drawable.h>
 #include<SDL2/SDL.h>
+#include <math.h>
 
 class Line: public Drawable
 {

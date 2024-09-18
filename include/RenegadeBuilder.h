@@ -16,12 +16,14 @@ class RenegadeBuilder
         RenegadeBuilder();
         RenegadeBuilder(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Color color);
         vector<shared_ptr<Drawable>> build();
+        Point getFirstPoint();
         virtual ~RenegadeBuilder();
 
     protected:
 
     private:
         Color color;
+        Point firstPoint;
         SDL_Renderer * pRenderer;
         SDL_Surface * window_surface;
         Point lastPoint;

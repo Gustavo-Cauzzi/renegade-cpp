@@ -18,6 +18,7 @@ class Renegade: public Drawable
         void draw() override;
         virtual ~Renegade();
 
+
     protected:
 
     private:
@@ -25,6 +26,10 @@ class Renegade: public Drawable
         SDL_Renderer * pRenderer;
         SDL_Surface * window_surface;
         vector<shared_ptr<Drawable>> components;
+        Point firstPoint;
+        Uint32 RGB(int r, int g, int b);
+        Uint32 getPixel(int x, int y);
+
 };
 
 #endif // RENEGADE_H

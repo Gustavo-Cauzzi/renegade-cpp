@@ -17,6 +17,7 @@ SDL_Renderer* pRenderer = 0;
 SDL_Surface * window_surface;
 
 
+
 void display()
 {
     Renegade renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
@@ -30,12 +31,11 @@ int main(int argc, char* args[])
 	SDL_Event event;
 
 	// initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) >= 0)
+	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
 	{
 		// if succeeded create our window
 		pWindow = SDL_CreateWindow("SDL_Classes",
-					SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-														640, 480,
+					SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480,
 												SDL_WINDOW_SHOWN);
 
 		// if the window creation succeeded create our renderer

@@ -18,7 +18,8 @@ RenegadeBuilder::RenegadeBuilder(SDL_Surface * window_surface, SDL_Renderer * pR
 
     this->scale = 2.5;
 
-    this->append(189,208, 281,197);
+    this->firstPoint = Point(189, 208);
+    this->append(this->firstPoint.getX(),this->firstPoint.getY(), 281,197);
     this->append(318,179);
     this->append(806,185);
     this->append(846,198);
@@ -66,6 +67,9 @@ shared_ptr<Drawable> RenegadeBuilder::createLine(Point start, Point end) {
 
 vector<shared_ptr<Drawable>> RenegadeBuilder::build(){
     return this->currentShape;
+}
+Point RenegadeBuilder::getFirstPoint(){
+    return this->firstPoint;
 }
 
 void RenegadeBuilder::append(int x1, int y1, int x2, int y2){
