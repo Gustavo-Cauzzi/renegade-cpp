@@ -25,8 +25,13 @@ class RenegadeBuilder
         SDL_Renderer * pRenderer;
         SDL_Surface * window_surface;
         Point lastPoint;
+        Point firstPoint;
         float scale;
+        double degrees;
         vector<shared_ptr<Drawable>> currentShape;
+        Point createPoint(int x, int y);
+        int scaling(int value);
+        Point rotating(Point value);
         void append(int x1, int y1, int x2, int y2);
         void append(int x, int y);
         void appendCurve(int x, int y, int sla, int temqueve);

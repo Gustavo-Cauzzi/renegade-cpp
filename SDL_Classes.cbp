@@ -38,13 +38,23 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Circle.h" />
 		<Unit filename="include/Color.h" />
+		<Unit filename="include/Drawable.h" />
 		<Unit filename="include/Line.h" />
 		<Unit filename="include/Point.h" />
+		<Unit filename="include/Polygon.h" />
+		<Unit filename="include/Renegade.h" />
+		<Unit filename="include/RenegadeBuilder.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Circle.cpp" />
 		<Unit filename="src/Color.cpp" />
+		<Unit filename="src/Drawable.cpp" />
 		<Unit filename="src/Line.cpp" />
 		<Unit filename="src/Point.cpp" />
+		<Unit filename="src/Polygon.cpp" />
+		<Unit filename="src/Renegade.cpp" />
+		<Unit filename="src/RenegadeBuilder.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

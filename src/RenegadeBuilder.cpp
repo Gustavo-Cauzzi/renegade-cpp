@@ -1,6 +1,28 @@
 #include "RenegadeBuilder.h"
 using namespace std;
 
+double toRadians(double degrees)
+{
+    return degrees * 0.017453293;
+}
+
+Point rotatePoint(Point p, double radians)
+{
+    return Point(
+        p.getX() * cos(radians) - p.getY() * sin(radians),
+        p.getX() * sin(radians) + p.getY() * cos(radians));
+}
+
+Point rotatePolygonByOrigin(Point origin, Point pointToRotate, double degrees)
+{
+    int newX = pointToRotate.getX() - origin.getX();
+    int newY = pointToRotate.getY() - origin.getY();
+    Point newPoint = rotatePoint(Point(newX, newY), toRadians(degrees));
+    newPoint.setX(newPoint.getX() + origin.getX());
+    newPoint.setY(newPoint.getY() + origin.getY());
+    return newPoint;
+}
+
 RenegadeBuilder::RenegadeBuilder()
 {
     //ctor
@@ -17,8 +39,11 @@ RenegadeBuilder::RenegadeBuilder(SDL_Surface * window_surface, SDL_Renderer * pR
     this->pRenderer = pRenderer;
 
     this->scale = 2.5;
+    this->degrees = -30;
 
-    this->append(189,208, 281,197);
+    this->firstPoint=Point(189, 208);
+
+    this->append(this->firstPoint.getX(), this->firstPoint.getY(), 281,197);
     this->append(318,179);
     this->append(806,185);
     this->append(846,198);
@@ -69,15 +94,25 @@ vector<shared_ptr<Drawable>> RenegadeBuilder::build(){
 }
 
 void RenegadeBuilder::append(int x1, int y1, int x2, int y2){
-    Point p1 = Point((int) x1/this->scale, (int) y1/this->scale);
-    Point p2 = Point((int) x2/this->scale, (int) y2/this->scale);
+    Point p1 = this->createPoint(x1, y1);
+    Point p2 = this->createPoint(x2, y2);
     this->lastPoint = p2;
     this->currentShape.push_back(this->createLine(p1, p2));
 }
 void RenegadeBuilder::append(int x, int y){
-    Point point = Point((int) x/this->scale, (int) y/this->scale);
+    Point point = this->createPoint(x, y);
     this->currentShape.push_back(this->createLine(this->lastPoint, point));
     this->lastPoint = point;
+}
+int RenegadeBuilder::scaling(int value){
+    return (int) value / this->scale;
+}
+Point RenegadeBuilder::rotating(Point point){
+    return rotatePolygonByOrigin(this->firstPoint, point, this->degrees);
+}
+Point RenegadeBuilder::createPoint(int x, int y){
+    Point p = Point(this->scaling(x), this->scaling(y));
+    return this->rotating(p);
 }
 void RenegadeBuilder::appendCurve(int x, int y, int sla, int temqueve){
     printf("TEMQUEVE");
