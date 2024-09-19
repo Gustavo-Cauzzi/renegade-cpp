@@ -22,6 +22,8 @@ void display()
 {
     Renegade renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
     renegade.draw();
+
+    SDL_UpdateWindowSurface(pWindow);
 }
 
 // Driver code
@@ -60,7 +62,7 @@ int main(int argc, char* args[])
         display();
 
 		// show the window
-		SDL_RenderPresent(pRenderer);
+		//SDL_RenderPresent(pRenderer);
 	}
 
 	// clean up SDL

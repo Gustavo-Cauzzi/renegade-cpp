@@ -29,6 +29,8 @@ class Renegade: public Drawable
         Point firstPoint;
         Uint32 RGB(int r, int g, int b);
         Uint32 getPixel(int x, int y);
+        void floodFill(int x, int y, Uint32 newColor, Uint32 backgroundColor);
+        void setPixel(int x, int y, Uint32 color);
 
 };
 
