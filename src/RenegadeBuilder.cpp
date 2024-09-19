@@ -81,39 +81,71 @@ RenegadeBuilder::RenegadeBuilder(SDL_Surface * window_surface, SDL_Renderer * pR
     this->append(207,225);
     this->append(188,218);
     this->append(188,208);
+    this->createCircle(138, 230, 40);
+    this->createCircle(445, 230, 40);
 
     //this->currentShape.push_back(this->createLine(p1, p2));
 }
 
 shared_ptr<Drawable> RenegadeBuilder::createLine(Point start, Point end) {
-    return shared_ptr<Drawable>(new Line(this->window_surface,this->pRenderer, start, end, this->color));
+    Line* line = new Line(this->window_surface,this->pRenderer, start, end, this->color);
+    this->lines.push_back(*line);
+    return shared_ptr<Drawable>(line);
+}
+void RenegadeBuilder::createCircle(int x, int y, int r){
+    Point circleOrigin = this->createPoint(x, y, false);
+    Circle* circle = new Circle(
+        this->window_surface,
+        this->pRenderer,
+        circleOrigin.getX(),
+        circleOrigin.getY(),
+        r,
+        this->color
+    );
+    this->tires.push_back(*circle);
+    this->currentShape.push_back(
+        shared_ptr<Drawable>(circle)
+    );
 }
 
 vector<shared_ptr<Drawable>> RenegadeBuilder::build(){
     return this->currentShape;
 }
 
+void RenegadeBuilder::update(){
+    // TODO
+}
+
 void RenegadeBuilder::append(int x1, int y1, int x2, int y2){
     Point p1 = this->createPoint(x1, y1);
     Point p2 = this->createPoint(x2, y2);
-    this->lastPoint = p2;
+    this->previousPoint = p2;
     this->currentShape.push_back(this->createLine(p1, p2));
 }
 void RenegadeBuilder::append(int x, int y){
     Point point = this->createPoint(x, y);
-    this->currentShape.push_back(this->createLine(this->lastPoint, point));
-    this->lastPoint = point;
+    this->currentShape.push_back(this->createLine(this->previousPoint, point));
+    this->previousPoint = point;
 }
+
+
 int RenegadeBuilder::scaling(int value){
     return (int) value / this->scale;
 }
 Point RenegadeBuilder::rotating(Point point){
     return rotatePolygonByOrigin(this->firstPoint, point, this->degrees);
 }
+
 Point RenegadeBuilder::createPoint(int x, int y){
-    Point p = Point(this->scaling(x), this->scaling(y));
+    return this->createPoint(x, y, true);
+}
+Point RenegadeBuilder::createPoint(int x, int y, bool scaling){
+    x = scaling ? this->scaling(x) : x;
+    y = scaling ? this->scaling(y) : y;
+    Point p = Point(x, y);
     return this->rotating(p);
 }
+
 void RenegadeBuilder::appendCurve(int x, int y, int sla, int temqueve){
     printf("TEMQUEVE");
 }

@@ -21,6 +21,16 @@ void display()
 {
     Renegade renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
     renegade.draw();
+
+    Line road = Line( // TODO rotate this line using math
+         window_surface,
+         pRenderer,
+         Point(0, 400),
+         Point(640, 400),
+         Color(window_surface, 0, 0, 0)
+    );
+
+    road.draw();
 }
 
 // Driver code

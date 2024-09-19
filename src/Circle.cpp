@@ -35,6 +35,14 @@ void Circle::draw() {
         }
         displayBresenhamCircle(this->x, this->y, x, y);
     }
+    Line line = Line(
+         this->window_surface,
+         this->pRenderer,
+         Point(this->x, this->y),
+         Point(this->x+r, this->y),
+         this->color
+    );
+    line.draw();
 }
 
 void Circle::setPixel(int x, int y) {

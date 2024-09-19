@@ -162,19 +162,20 @@
 	"Renegade.h"
 	<RenegadeBuilder.h>
 
-1726704220 /home/gustavo/ucs/grafica/SDL/tde1/include/RenegadeBuilder.h
+1726707305 /home/gustavo/ucs/grafica/SDL/tde1/include/RenegadeBuilder.h
 	<Point.h>
 	<vector>
 	<Color.h>
+	<Circle.h>
 	<Drawable.h>
 	<SDL2/SDL.h>
 	<Line.h>
 	<memory>
 
-1726704422 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
+1726708562 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
-1726527721 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
+1726706868 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
 	"Circle.h"
 
 1726527235 /home/gustavo/ucs/grafica/SDL/tde1/include/Circle.h
