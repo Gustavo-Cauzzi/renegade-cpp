@@ -1,5 +1,5 @@
 #ifndef RENEGADE_H
-#define RENEGADEBUILDER_H
+#define RENEGADE_H
 #include <Point.h>
 #include <vector>
 #include <Color.h>

@@ -77,38 +77,6 @@ void Line::draw() {
     }
 }
 
-Uint32 Line::getPixel(int x, int y)
-{
-    int bpp = window_surface->format->BytesPerPixel;
-    /* Here p is the address to the pixel we want to retrieve */
-    Uint8 *p = (Uint8 *) window_surface->pixels + y * window_surface->pitch + x * bpp;
-
-    switch (bpp)
-    {
-        case 1:
-            return *p;
-            break;
-
-        case 2:
-            return *(Uint16 *)p;
-            break;
-
-        case 3:
-            if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
-                return p[0] << 16 | p[1] << 8 | p[2];
-            else
-                return p[0] | p[1] << 8 | p[2] << 16;
-            break;
-
-            case 4:
-                return *(Uint32 *)p;
-                break;
-
-            default:
-                return 0;       /* shouldn't happen, but avoids warnings */
-      }
-}
-
 void Line::drawWuLine(int x0, int y0, int x1, int y1, Color color )
 {
 
@@ -208,7 +176,7 @@ void Line::drawWuLine(int x0, int y0, int x1, int y1, Color color )
             ASSERT( weighting < 256 );
             ASSERT( ( weighting ^ 255 ) < 256 );
             */
-            Uint32 clrBackGround = getPixel(x0, y0 );
+            Uint32 clrBackGround = this->getPixel(this->window_surface, x0, y0 );
             //clrBackGround = RGB(255, 255, 255);
             Uint8 rb = color.getColorComponent(clrBackGround,'r');
             Uint8 gb = color.getColorComponent(clrBackGround,'g');
@@ -220,7 +188,7 @@ void Line::drawWuLine(int x0, int y0, int x1, int y1, Color color )
             Uint8 br = ( bb > bl ? ( ( Uint8 )( ( ( double )( grayl<grayb?weighting:(weighting ^ 255)) ) / 255.0 * ( bb - bl ) + bl ) ) : ( ( Uint8 )( ( ( double )( grayl<grayb?weighting:(weighting ^ 255)) ) / 255.0 * ( bl - bb ) + bb ) ) );
             setPixel( x0, y0, color.getColor( rr, gr, br ) );
 
-            clrBackGround = getPixel(x0 + xDir, y0 );
+            clrBackGround = this->getPixel(this->window_surface, x0 + xDir, y0 );
             //clrBackGround = RGB(255, 255, 255);
             rb = color.getColorComponent( clrBackGround, 'r' );
             gb = color.getColorComponent( clrBackGround, 'g' );
@@ -258,7 +226,7 @@ void Line::drawWuLine(int x0, int y0, int x1, int y1, Color color )
         ASSERT( weighting < 256 );
         ASSERT( ( weighting ^ 255 ) < 256 );
         */
-        Uint32 clrBackGround = getPixel(x0, y0 );
+        Uint32 clrBackGround = this->getPixel(this->window_surface, x0, y0 );
         //clrBackGround = RGB(255, 255, 255);
         Uint8 rb = color.getColorComponent( clrBackGround, 'r' );
         Uint8 gb = color.getColorComponent( clrBackGround, 'g' );
@@ -271,7 +239,7 @@ void Line::drawWuLine(int x0, int y0, int x1, int y1, Color color )
 
         setPixel( x0, y0, color.RGB( rr, gr, br ) );
 
-        clrBackGround = getPixel(x0, y0 + 1 );
+        clrBackGround = this->getPixel(this->window_surface, x0, y0 + 1 );
         //clrBackGround = RGB(255, 255, 255);
         rb = color.getColorComponent( clrBackGround, 'r' );
         gb = color.getColorComponent( clrBackGround, 'g' );

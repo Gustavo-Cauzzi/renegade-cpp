@@ -45,12 +45,7 @@ double toRadians(double degrees)
 void Point::rotate(int degrees)
 {
     double radians = toRadians(degrees);
-    printf("this->x %f\n", this->x);
-    printf("this->y %f\n", this->y);
     this->x = this->x * cos(radians) - this->y * sin(radians);
     this->y = this->x * sin(radians) + this->y * cos(radians);
-    printf("this->x %f\n", this->x);
-    printf("this->y %f\n", this->y);
-    printf("--=---=--=-=-=", this->y);
 }
 

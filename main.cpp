@@ -16,8 +16,11 @@ SDL_Window* pWindow = 0;
 SDL_Renderer* pRenderer = 0;
 SDL_Surface * window_surface;
 
+int height = 480, width = 640;
+
 Renegade renegade;
 Line ground;
+Utils utils;
 
 void setup(){
     renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
@@ -32,6 +35,7 @@ void setup(){
     );
     ground.rotate(-30);
     ground.translate(-200, 317);
+    utils = Utils();
 }
 
 void display()
@@ -39,6 +43,14 @@ void display()
     renegade.draw();
     renegade.update();
     ground.draw();
+    /*utils.floodFill(
+        window_surface,
+        pRenderer,
+        width - 10,
+        height - 10,
+        Color(window_surface, 0, 0, 0),
+        Color(window_surface, 255, 255, 255)
+    );*/
 }
 
 // Driver code
@@ -51,9 +63,9 @@ int main(int argc, char* args[])
 	if (SDL_Init(SDL_INIT_VIDEO) >= 0)
 	{
 		// if succeeded create our window
-		pWindow = SDL_CreateWindow("SDL_Classes",
+		pWindow = SDL_CreateWindow("Atoleide",
 					SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-														640, 480,
+														width, height,
 												SDL_WINDOW_SHOWN);
 
 		// if the window creation succeeded create our renderer

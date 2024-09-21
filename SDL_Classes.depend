@@ -103,7 +103,7 @@
 1725933993 source:/home/gustavo/ucs/grafica/SDL/tde1/SDL_Classes/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
-1726941492 source:/home/gustavo/ucs/grafica/SDL/tde1/main.cpp
+1726951950 source:/home/gustavo/ucs/grafica/SDL/tde1/main.cpp
 	<SDL2/SDL.h>
 	<stdio.h>
 	<Color.h>
@@ -131,14 +131,14 @@
 1725933671 /home/gustavo/ucs/grafica/SDL/tde1/include/Drawable.h
 	<SDL2/SDL.h>
 
-1726933693 /home/gustavo/ucs/grafica/SDL/tde1/include/Line.h
+1726951672 /home/gustavo/ucs/grafica/SDL/tde1/include/Line.h
 	<Point.h>
 	<Color.h>
 	<Drawable.h>
 	<SDL2/SDL.h>
 	<Utils.h>
 
-1726940935 /home/gustavo/ucs/grafica/SDL/tde1/include/Renegade.h
+1726947898 /home/gustavo/ucs/grafica/SDL/tde1/include/Renegade.h
 	<Point.h>
 	<vector>
 	<Color.h>
@@ -152,10 +152,10 @@
 1725308181 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Color.cpp
 	"Color.h"
 
-1726939814 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Line.cpp
+1726952001 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Line.cpp
 	"Line.h"
 
-1726941351 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Point.cpp
+1726948443 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Point.cpp
 	"Point.h"
 
 1725930116 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Drawable.cpp
@@ -163,7 +163,7 @@
 1725933862 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Polygon.cpp
 	"Polygon.h"
 
-1726946387 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Renegade.cpp
+1726948443 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Renegade.cpp
 	"Renegade.h"
 
 1726707305 /home/gustavo/ucs/grafica/SDL/tde1/include/RenegadeBuilder.h
@@ -179,7 +179,7 @@
 1726708562 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
-1726946367 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
+1726948443 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
 	"Circle.h"
 
 1726945639 /home/gustavo/ucs/grafica/SDL/tde1/include/Circle.h
@@ -191,9 +191,11 @@
 	<Line.h>
 	<Utils.h>
 
-1726933730 /home/gustavo/ucs/grafica/SDL/tde1/include/Utils.h
+1726950128 /home/gustavo/ucs/grafica/SDL/tde1/include/Utils.h
 	<Point.h>
+	<Color.h>
+	<SDL2/SDL.h>
 
-1726940116 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Utils.cpp
+1726954096 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Utils.cpp
 	"Utils.h"
 

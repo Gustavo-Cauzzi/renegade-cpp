@@ -63,7 +63,6 @@ int Circle::getY() {
 }
 
 void Circle::translate(float x, float y) {
-    printf("t %f %f %f\n", this->point.getX(), x, this->point.getX() + x);
     this->point.setX(this->point.getX() + x);
     this->point.setY(this->point.getY() + y);
 }
