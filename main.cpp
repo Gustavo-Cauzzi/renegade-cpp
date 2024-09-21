@@ -17,24 +17,28 @@ SDL_Renderer* pRenderer = 0;
 SDL_Surface * window_surface;
 
 Renegade renegade;
+Line ground;
 
 void setup(){
     renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
+    ground = Line( // TODO rotate this line using math
+         window_surface,
+         pRenderer,
+         Point(renegade.firstPoint.getX(), renegade.firstPoint.getY()),
+         Point(renegade.firstPoint.getX() + 900, renegade.firstPoint.getY()),
+         //Point(0, 0),
+         //Point(900, 0),
+         Color(window_surface, 0, 0, 0)
+    );
+    ground.rotate(-30);
+    ground.translate(-200, 317);
 }
 
 void display()
 {
     renegade.draw();
-
-    Line road = Line( // TODO rotate this line using math
-         window_surface,
-         pRenderer,
-         Point(0, 400),
-         Point(640, 400),
-         Color(window_surface, 0, 0, 0)
-    );
-
-    road.draw();
+    renegade.update();
+    ground.draw();
 }
 
 // Driver code

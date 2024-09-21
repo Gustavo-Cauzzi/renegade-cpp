@@ -7,18 +7,18 @@ class Point
 {
     public:
         Point();
-        Point(float x, float y);
-        float getX();
-        float getY();
-        void setX(float x);
-        void setY(float y);
+        Point(double x, double y);
+        double getX();
+        double getY();
+        void setX(double x);
+        void setY(double y);
         void rotate(int degrees);
         virtual ~Point();
 
     protected:
 
     private:
-        float x, y;
+        double x, y;
 };
 
 #endif // POINT_H

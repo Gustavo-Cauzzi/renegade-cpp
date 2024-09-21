@@ -8,21 +8,23 @@
 #include <SDL2/SDL.h>
 #include <Line.h>
 #include <memory>
+#include <Utils.h>
 using namespace std;
 
 
-class Renegade: Drawable
+class Renegade: public Drawable, public Utils
 {
     public:
         Renegade();
         Renegade(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Color color);
+        Point firstPoint;
         void draw() override;
+        void update();
         virtual ~Renegade();
 
     protected:
 
     private:
-        void update();
         Color color;
         SDL_Renderer * pRenderer;
         SDL_Surface * window_surface;
@@ -32,7 +34,6 @@ class Renegade: Drawable
         double degrees;
 
         Point previousPoint;
-        Point firstPoint;
         Point createPoint(int x, int y);
         Point createPoint(int x, int y, bool scaling);
         int scaling(int value);

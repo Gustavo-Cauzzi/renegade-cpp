@@ -4,14 +4,16 @@
 #include <Color.h>
 #include <Drawable.h>
 #include<SDL2/SDL.h>
+#include<Utils.h>
 
-class Line: public Drawable
+class Line: public Drawable, public Utils
 {
     public:
         Line();
         Line(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Point start, Point end, Color color);
         Line(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Point start, Point end, Color color, int antialias);
         void draw() override;
+        void rotate(int degrees);
         void translate(float x, float y);
         virtual ~Line();
 

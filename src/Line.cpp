@@ -37,12 +37,14 @@ void Line::setPixel(int x, int y, Uint32 cor) {
 }
 
 void Line::translate (float x, float y) {
-    //printf("this->start.getX()1 %f\n", this->start.getX());
     this->start.setX(this->start.getX() + x);
-    //printf("this->start.getX()2 %f\n", this->start.getX());
     this->start.setY(this->start.getY() + y);
     this->end.setX(this->end.getX() + x);
     this->end.setY(this->end.getY() + y);
+}
+
+void Line::rotate(int degrees) {
+    this->end = this->rotatePointByOrigin(this->start, this->end, degrees);
 }
 
 void Line::setPixel(int x, int y, Color color) {

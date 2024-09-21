@@ -1,24 +1,6 @@
 #include "Renegade.h"
 using namespace std;
 
-Point rotatePoint(Point p, double degrees)
-{
-    double radians = degrees * 0.017453293;
-    return Point(
-        p.getX() * cos(radians) - p.getY() * sin(radians),
-        p.getX() * sin(radians) + p.getY() * cos(radians));
-}
-
-Point rotatePointByOrigin(Point origin, Point pointToRotate, double degrees)
-{
-    int newX = pointToRotate.getX() - origin.getX();
-    int newY = pointToRotate.getY() - origin.getY();
-    Point newPoint = rotatePoint(Point(newX, newY), degrees);
-    newPoint.setX(newPoint.getX() + origin.getX());
-    newPoint.setY(newPoint.getY() + origin.getY());
-    return newPoint;
-}
-
 Renegade::Renegade()
 {
     //ctor
@@ -36,8 +18,8 @@ Renegade::Renegade(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Color
 
     this->scale = 0.33;
     this->degrees = -30;
-    Point vel = Point(0.04f, -0.02f);
-    //vel.rotate(270);
+    Point vel = Point(0.04f, 0);
+    vel.rotate(-35);
     this->velocityVector = vel;
 
     this->firstPoint=Point(189, 208);
@@ -84,8 +66,6 @@ Renegade::Renegade(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Color
     this->createCircle(1112, 575, 100);
 
     this->translate(-200, 300);
-
-    //this->currentShape.push_back(this->createLine(p1, p2));
 }
 
 void Renegade::draw() {
@@ -95,7 +75,6 @@ void Renegade::draw() {
     for (const auto &circle: this->tires) {
         circle->draw();
     }
-    this->update();
 }
 
 void Renegade::update(){
@@ -138,7 +117,7 @@ int Renegade::scaling(int value){
 }
 
 Point Renegade::rotating(Point point){
-    return rotatePointByOrigin(this->firstPoint, point, this->degrees);
+    return this->rotatePointByOrigin(this->firstPoint, point, this->degrees);
 }
 
 void Renegade::translate(float x, float y){
@@ -147,7 +126,6 @@ void Renegade::translate(float x, float y){
     }
     for (const auto &circle: this->tires) {
         circle->translate(x, y);
-        printf("c %f %f\n", circle->getX(),circle->getY());
     }
 }
 
