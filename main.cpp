@@ -16,10 +16,14 @@ SDL_Window* pWindow = 0;
 SDL_Renderer* pRenderer = 0;
 SDL_Surface * window_surface;
 
+Renegade renegade;
+
+void setup(){
+    renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
+}
 
 void display()
 {
-    Renegade renegade = Renegade(window_surface, pRenderer, Color(window_surface, 255, 0, 0));
     renegade.draw();
 
     Line road = Line( // TODO rotate this line using math
@@ -58,6 +62,7 @@ int main(int argc, char* args[])
 	else
 		return 1; // sdl could not initialize
 
+    setup();
 	while (1)
 	{
 		if (SDL_PollEvent(&event) && event.type == SDL_QUIT)

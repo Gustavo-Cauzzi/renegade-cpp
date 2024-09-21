@@ -13,6 +13,9 @@ class Circle: public Drawable
         Circle();
         Circle(SDL_Surface * window_surface, SDL_Renderer * pRenderer, int x, int y, int r, Color color);
         void draw() override;
+        void translate(float x, float y);
+        int getX();
+        int getY();
         virtual ~Circle();
 
     protected:
@@ -20,7 +23,8 @@ class Circle: public Drawable
     private:
         void displayBresenhamCircle(int xc, int yc, int x, int y);
         void setPixel(int x, int y);
-        int x, y, r;
+        Point point;
+        int r;
         Color color;
         SDL_Renderer * pRenderer;
         SDL_Surface * window_surface;

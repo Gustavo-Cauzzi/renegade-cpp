@@ -1,22 +1,24 @@
 #ifndef POINT_H
 #define POINT_H
-
+#include<math.h>
+#include<stdio.h>
 
 class Point
 {
     public:
         Point();
-        Point(int x, int y);
-        int getX();
-        int getY();
-        void setX(int x);
-        void setY(int y);
+        Point(float x, float y);
+        float getX();
+        float getY();
+        void setX(float x);
+        void setY(float y);
+        void rotate(int degrees);
         virtual ~Point();
 
     protected:
 
     private:
-        int x, y;
+        float x, y;
 };
 
 #endif // POINT_H

@@ -6,8 +6,7 @@ Circle::Circle()
 }
 
 Circle::Circle(SDL_Surface * window_surface, SDL_Renderer * pRenderer, int x, int y, int r, Color color) {
-    this->x = x;
-    this->y = y;
+    this->point = Point(x, y);
     this->r = r;
     this->color = color;
     this->window_surface = window_surface;
@@ -24,7 +23,7 @@ Circle::~Circle()
 void Circle::draw() {
     int x = 0, y = r;
     int decisionParameter = 3 - 2 * this->r;
-    displayBresenhamCircle(this->x, this->y, x, y);
+    displayBresenhamCircle(this->point.getX(), this->point.getY(), x, y);
     while (y >= x) {
         x++;
         if (decisionParameter > 0) {
@@ -33,16 +32,30 @@ void Circle::draw() {
         } else {
             decisionParameter = decisionParameter + 4 * x + 6;
         }
-        displayBresenhamCircle(this->x, this->y, x, y);
+        displayBresenhamCircle(this->point.getX(), this->point.getY(), x, y);
     }
     Line line = Line(
          this->window_surface,
          this->pRenderer,
-         Point(this->x, this->y),
-         Point(this->x+r, this->y),
+         Point(this->point.getX(), this->point.getY()),
+         Point(this->point.getX() + r, this->point.getY()),
          this->color
     );
     line.draw();
+}
+
+int Circle::getX() {
+    return this->point.getX();
+}
+
+int Circle::getY() {
+    return this->point.getY();
+}
+
+void Circle::translate(float x, float y) {
+    printf("t %f %f %f\n", this->point.getX(), x, this->point.getX() + x);
+    this->point.setX(this->point.getX() + x);
+    this->point.setY(this->point.getY() + y);
 }
 
 void Circle::setPixel(int x, int y) {

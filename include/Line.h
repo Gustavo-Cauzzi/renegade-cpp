@@ -12,6 +12,7 @@ class Line: public Drawable
         Line(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Point start, Point end, Color color);
         Line(SDL_Surface * window_surface, SDL_Renderer * pRenderer, Point start, Point end, Color color, int antialias);
         void draw() override;
+        void translate(float x, float y);
         virtual ~Line();
 
     protected:
