@@ -11,6 +11,7 @@ Circle::Circle(SDL_Surface * window_surface, SDL_Renderer * pRenderer, int x, in
     this->color = color;
     this->window_surface = window_surface;
     this->pRenderer = pRenderer;
+    this->rotation = 0;
 }
 
 Circle::~Circle()
@@ -18,7 +19,9 @@ Circle::~Circle()
     //dtor
 }
 
-
+void Circle::rotate(float degrees) {
+    this->rotation += degrees;
+}
 
 void Circle::draw() {
     int x = 0, y = r;
@@ -34,14 +37,21 @@ void Circle::draw() {
         }
         displayBresenhamCircle(this->point.getX(), this->point.getY(), x, y);
     }
-    Line line = Line(
-         this->window_surface,
-         this->pRenderer,
-         Point(this->point.getX(), this->point.getY()),
-         Point(this->point.getX() + r, this->point.getY()),
-         this->color
-    );
-    line.draw();
+
+    int whellRimDegrees[6] = {0, 60, 120, 180, 240, 300};
+    for (int whellRimDegree: whellRimDegrees) {
+        Point whellRim = Point(this->point.getX() + r, this->point.getY());
+        whellRim = this->rotatePointByOrigin(this->point, whellRim, this->rotation + whellRimDegree);
+
+        Line line = Line(
+             this->window_surface,
+             this->pRenderer,
+             this->point,
+             whellRim,
+             this->color
+        );
+        line.draw();
+    }
 }
 
 int Circle::getX() {

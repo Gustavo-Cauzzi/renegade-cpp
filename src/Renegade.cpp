@@ -80,6 +80,9 @@ void Renegade::draw() {
 void Renegade::update(){
     printf("Update %f %f\n", this->velocityVector.getX(), this->velocityVector.getY());
     this->translate(this->velocityVector.getX(), this->velocityVector.getY());
+    for (const auto &circle: this->tires) {
+        circle->rotate(0.1);
+    }
 }
 
 shared_ptr<Line> Renegade::createLine(Point start, Point end) {

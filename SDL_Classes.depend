@@ -163,7 +163,7 @@
 1725933862 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Polygon.cpp
 	"Polygon.h"
 
-1726941464 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Renegade.cpp
+1726946387 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Renegade.cpp
 	"Renegade.h"
 
 1726707305 /home/gustavo/ucs/grafica/SDL/tde1/include/RenegadeBuilder.h
@@ -179,16 +179,17 @@
 1726708562 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
-1726884007 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
+1726946367 source:/home/gustavo/ucs/grafica/SDL/tde1/src/Circle.cpp
 	"Circle.h"
 
-1726883962 /home/gustavo/ucs/grafica/SDL/tde1/include/Circle.h
+1726945639 /home/gustavo/ucs/grafica/SDL/tde1/include/Circle.h
 	<Point.h>
 	<vector>
 	<Color.h>
 	<Drawable.h>
 	<SDL2/SDL.h>
 	<Line.h>
+	<Utils.h>
 
 1726933730 /home/gustavo/ucs/grafica/SDL/tde1/include/Utils.h
 	<Point.h>
