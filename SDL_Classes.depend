@@ -174,7 +174,7 @@
 1726526599 source:/home/gustavo/ucs/grafica/SDL/tde1/src/RenegadeBuilder.cpp
 	"RenegadeBuilder.h"
 
-1726712982 source:c:\users\55549\renegade-cpp\main.cpp
+1726713580 source:c:\users\55549\renegade-cpp\main.cpp
 	<SDL2/SDL.h>
 	<stdio.h>
 	<Color.h>
@@ -241,11 +241,11 @@
 1726526929 source:c:\users\55549\renegade-cpp\src\polygon.cpp
 	"Polygon.h"
 
-1726712611 source:c:\users\55549\renegade-cpp\src\renegade.cpp
+1726882733 source:c:\users\55549\renegade-cpp\src\renegade.cpp
 	"Renegade.h"
 	<RenegadeBuilder.h>
 
-1726533739 c:\users\55549\renegade-cpp\include\renegadebuilder.h
+1726882178 c:\users\55549\renegade-cpp\include\renegadebuilder.h
 	<Point.h>
 	<vector>
 	<Color.h>
@@ -254,8 +254,10 @@
 	<Line.h>
 	<memory>
 
-1726535905 source:c:\users\55549\renegade-cpp\src\renegadebuilder.cpp
+1726886909 source:c:\users\55549\renegade-cpp\src\renegadebuilder.cpp
 	"RenegadeBuilder.h"
+	<iostream>
+	<cmath>
 
 1722547242 c:\sdl2\include\sdl2\sdl.h
 	"SDL_main.h"
